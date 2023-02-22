@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" />
+    <button>send</button>
+    <div></div>
+    
+    <script>
+        let input = document.querySelector('input');
+        let button = document.querySelector('button')
+        let div = document.querySelector('div')
+
+        const ws = new WebSocket('ws://localhost:8823');
+
+        ws.addEventListener('open', () => {
+            div.innerHTML = 'connect'
+        });
+
+        button.addEventListener('click', () => {
+            ws.send(input.value)
+        });
+
+        ws.addEventListener('message', data => {
+            div.innerHTML = data.data
+        })
+    </script>
+</body>
+</html>

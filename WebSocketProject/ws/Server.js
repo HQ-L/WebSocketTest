@@ -6,7 +6,7 @@ const server = ws.createServer(connect => {
     connect.on('text', data => {
         console.log(data)
         broadcast({
-            type: 1,
+            type: "click",
             message: data
         })
     })

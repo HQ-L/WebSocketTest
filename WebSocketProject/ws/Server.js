@@ -5,9 +5,13 @@ const server = ws.createServer(connect => {
     console.log("success")
     connect.on('text', data => {
         console.log(data)
+        var dataHandle = data.replaceAll("\n", "\\n")
+        console.log(dataHandle)
+        let dataJson = JSON.parse(dataHandle)
         broadcast({
             type: "click",
-            message: data
+            message: dataJson["message"],
+            user: dataJson["user"]
         })
     })
 

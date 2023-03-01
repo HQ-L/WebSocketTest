@@ -1,52 +1,38 @@
 //
-//  ViewController.swift
+//  WebSocketSingleton.swift
 //  WebSocketDemo
 //
-//  Created by hq on 2023/2/20.
+//  Created by hq on 2023/3/1.
 //
 
-import UIKit
+import Foundation
 import SwiftyJSON
 
-class ViewController: UIViewController {
+class WebSocketSingleton: NSObject {
 
-    private let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 50)))
-
+    public static let shared = WebSocketSingleton()
     private var webSocket: URLSessionWebSocketTask?
     private var url: URL?
-    private var sendMessage = ""
+    private var sendMessage: [String] = []
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        view.backgroundColor = .lightGray
-
-        button.center = view.center
-        button.backgroundColor = .systemBlue
-        button.addTarget(self, action: #selector(send), for: .touchUpInside)
-        button.accessibilityLabel = "testButton"
-        view.accessibilityLabel = "testView"
-        view.addSubview(button)
-
+    private override init() {
+        super.init()
         let session = URLSession(
             configuration: .default,
             delegate: self,
             delegateQueue: OperationQueue()
         )
 
-        url = URL(string: "ws://192.168.1.139:8823")
+        url = URL(string: "ws://127.0.0.1:8823")
 
         guard let url = url else { return }
 
         webSocket = session.webSocketTask(with: url)
         webSocket?.resume()
     }
-
-
 }
 
-extension ViewController: URLSessionWebSocketDelegate {
-
+extension WebSocketSingleton: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
         print("connect")
         ping()
@@ -58,7 +44,8 @@ extension ViewController: URLSessionWebSocketDelegate {
     }
 }
 
-private extension ViewController {
+private extension WebSocketSingleton {
+
     func ping() {
         webSocket?.sendPing(pongReceiveHandler: { error in
             if let error = error as? NSError {
@@ -68,8 +55,16 @@ private extension ViewController {
     }
 
     @objc func send() {
-        sendMessage = "{ \"user\": \"ios\", \"message\": \(sendMessage)}"
-        webSocket?.send(.string(sendMessage), completionHandler: { error in
+//        sendMessage = "{ \"user\": \"ios\", \"message\": \(sendMessage)}"
+        var send = ""
+
+        for msg in sendMessage {
+            send = send + msg + "\n"
+        }
+
+        send = "{ \"user\": \"ios\", \"message\": \"\(send)\"}"
+
+        webSocket?.send(.string(send), completionHandler: { error in
             if let error = error as? NSError {
                 print(error.code)
             }
@@ -86,11 +81,11 @@ private extension ViewController {
                 case .string(let string):
                     print("string: \(string)")
                     let stringJson = JSON(parseJSON: string)
-                    if stringJson["type"] == "click" {
-//                        self?.sendMessage = TestTool.generateCodeForAllViewsWithAccessibilityLabel()
-                        TestTool.printViewHierachy()
+                    if stringJson["type"] == "click" && stringJson["user"] != "ios" {
+                        self?.sendMessage = [TestTool.generateCodeForAllViewsWithAccessibilityLabel()]
+//                        self?.sendMessage = TestTool.printViewHierachy()
+                        self?.send()
                     }
-//                    self?.send()
                     print("success")
                 @unknown default:
                     break

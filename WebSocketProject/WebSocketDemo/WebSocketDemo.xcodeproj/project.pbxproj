@@ -7,17 +7,72 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		050011AC29AC8C3600186589 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 050011AB29AC8C3600186589 /* ReplayKit.framework */; };
+		050011AF29AC8C3600186589 /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050011AE29AC8C3600186589 /* SampleHandler.swift */; };
+		050011B629AC8C3600186589 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 050011AB29AC8C3600186589 /* ReplayKit.framework */; };
+		050011B829AC8C3600186589 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 050011B729AC8C3600186589 /* UIKit.framework */; };
+		050011BB29AC8C3600186589 /* BroadcastSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050011BA29AC8C3600186589 /* BroadcastSetupViewController.swift */; };
+		050011BF29AC8C3600186589 /* RecordSetupUI.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 050011B529AC8C3600186589 /* RecordSetupUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		050011C229AC8C3600186589 /* Record.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 050011AA29AC8C3600186589 /* Record.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		050011CE29ACA77300186589 /* UIViewTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050011CB29ACA77300186589 /* UIViewTools.swift */; };
+		050011CF29ACA77300186589 /* TestCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050011CC29ACA77300186589 /* TestCodeGenerator.swift */; };
+		050011D029ACA77300186589 /* TestTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050011CD29ACA77300186589 /* TestTool.swift */; };
 		052618FF29A36AB8000B0EED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052618FE29A36AB8000B0EED /* AppDelegate.swift */; };
 		0526190129A36AB8000B0EED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0526190029A36AB8000B0EED /* SceneDelegate.swift */; };
 		0526190329A36AB8000B0EED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0526190229A36AB8000B0EED /* ViewController.swift */; };
 		0526190629A36AB8000B0EED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0526190429A36AB8000B0EED /* Main.storyboard */; };
 		0526190829A36AB9000B0EED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0526190729A36AB9000B0EED /* Assets.xcassets */; };
 		0526190B29A36AB9000B0EED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0526190929A36AB9000B0EED /* LaunchScreen.storyboard */; };
+		053EB87E29AED834005B8D58 /* WebSocketSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053EB87D29AED834005B8D58 /* WebSocketSingleton.swift */; };
+		053EB88029AED996005B8D58 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053EB87F29AED996005B8D58 /* ViewController2.swift */; };
 		05B0854029A626AB004F00F0 /* TextResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B0853F29A626AB004F00F0 /* TextResource.swift */; };
 		92A19A61DEC817DF910DE404 /* Pods_WebSocketDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F44D3F7418347768CB47713 /* Pods_WebSocketDemo.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		050011BD29AC8C3600186589 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 052618F329A36AB8000B0EED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 050011B429AC8C3600186589;
+			remoteInfo = RecordSetupUI;
+		};
+		050011C029AC8C3600186589 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 052618F329A36AB8000B0EED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 050011A929AC8C3600186589;
+			remoteInfo = Record;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		050011C329AC8C3600186589 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				050011BF29AC8C3600186589 /* RecordSetupUI.appex in Embed Foundation Extensions */,
+				050011C229AC8C3600186589 /* Record.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		050011AA29AC8C3600186589 /* Record.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Record.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		050011AB29AC8C3600186589 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		050011AE29AC8C3600186589 /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
+		050011B029AC8C3600186589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		050011B529AC8C3600186589 /* RecordSetupUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RecordSetupUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		050011B729AC8C3600186589 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		050011BA29AC8C3600186589 /* BroadcastSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSetupViewController.swift; sourceTree = "<group>"; };
+		050011BC29AC8C3600186589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		050011CB29ACA77300186589 /* UIViewTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewTools.swift; sourceTree = "<group>"; };
+		050011CC29ACA77300186589 /* TestCodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCodeGenerator.swift; sourceTree = "<group>"; };
+		050011CD29ACA77300186589 /* TestTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTool.swift; sourceTree = "<group>"; };
 		052618FB29A36AB8000B0EED /* WebSocketDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebSocketDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		052618FE29A36AB8000B0EED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0526190029A36AB8000B0EED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +81,8 @@
 		0526190729A36AB9000B0EED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0526190A29A36AB9000B0EED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0526190C29A36AB9000B0EED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		053EB87D29AED834005B8D58 /* WebSocketSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketSingleton.swift; sourceTree = "<group>"; };
+		053EB87F29AED996005B8D58 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		05B0853F29A626AB004F00F0 /* TextResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextResource.swift; sourceTree = "<group>"; };
 		15195FF885C0215961DF7C0D /* Pods-WebSocketDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebSocketDemo.debug.xcconfig"; path = "Target Support Files/Pods-WebSocketDemo/Pods-WebSocketDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		7B1ECCAF26094FC9B48CBC00 /* Pods-WebSocketDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebSocketDemo.release.xcconfig"; path = "Target Support Files/Pods-WebSocketDemo/Pods-WebSocketDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -33,6 +90,23 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		050011A729AC8C3600186589 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				050011AC29AC8C3600186589 /* ReplayKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		050011B229AC8C3600186589 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				050011B629AC8C3600186589 /* ReplayKit.framework in Frameworks */,
+				050011B829AC8C3600186589 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		052618F829A36AB8000B0EED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -48,14 +122,48 @@
 			isa = PBXGroup;
 			children = (
 				9F44D3F7418347768CB47713 /* Pods_WebSocketDemo.framework */,
+				050011AB29AC8C3600186589 /* ReplayKit.framework */,
+				050011B729AC8C3600186589 /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		050011AD29AC8C3600186589 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				050011AE29AC8C3600186589 /* SampleHandler.swift */,
+				050011B029AC8C3600186589 /* Info.plist */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		050011B929AC8C3600186589 /* RecordSetupUI */ = {
+			isa = PBXGroup;
+			children = (
+				050011BA29AC8C3600186589 /* BroadcastSetupViewController.swift */,
+				050011BC29AC8C3600186589 /* Info.plist */,
+			);
+			path = RecordSetupUI;
+			sourceTree = "<group>";
+		};
+		050011CA29ACA75800186589 /* TestTool */ = {
+			isa = PBXGroup;
+			children = (
+				050011CC29ACA77300186589 /* TestCodeGenerator.swift */,
+				050011CD29ACA77300186589 /* TestTool.swift */,
+				050011CB29ACA77300186589 /* UIViewTools.swift */,
+			);
+			path = TestTool;
 			sourceTree = "<group>";
 		};
 		052618F229A36AB8000B0EED = {
 			isa = PBXGroup;
 			children = (
+				053EB87C29AED7F6005B8D58 /* Singleton */,
+				050011CA29ACA75800186589 /* TestTool */,
 				052618FD29A36AB8000B0EED /* WebSocketDemo */,
+				050011AD29AC8C3600186589 /* Record */,
+				050011B929AC8C3600186589 /* RecordSetupUI */,
 				052618FC29A36AB8000B0EED /* Products */,
 				6BC757AD9739BE3878E9D9BD /* Pods */,
 				00A8D1B070168595D0695365 /* Frameworks */,
@@ -66,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				052618FB29A36AB8000B0EED /* WebSocketDemo.app */,
+				050011AA29AC8C3600186589 /* Record.appex */,
+				050011B529AC8C3600186589 /* RecordSetupUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,8 +191,17 @@
 				0526190929A36AB9000B0EED /* LaunchScreen.storyboard */,
 				0526190C29A36AB9000B0EED /* Info.plist */,
 				05B0853F29A626AB004F00F0 /* TextResource.swift */,
+				053EB87F29AED996005B8D58 /* ViewController2.swift */,
 			);
 			path = WebSocketDemo;
+			sourceTree = "<group>";
+		};
+		053EB87C29AED7F6005B8D58 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				053EB87D29AED834005B8D58 /* WebSocketSingleton.swift */,
+			);
+			path = Singleton;
 			sourceTree = "<group>";
 		};
 		6BC757AD9739BE3878E9D9BD /* Pods */ = {
@@ -97,6 +216,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		050011A929AC8C3600186589 /* Record */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 050011C929AC8C3600186589 /* Build configuration list for PBXNativeTarget "Record" */;
+			buildPhases = (
+				050011A629AC8C3600186589 /* Sources */,
+				050011A729AC8C3600186589 /* Frameworks */,
+				050011A829AC8C3600186589 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Record;
+			productName = Record;
+			productReference = 050011AA29AC8C3600186589 /* Record.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		050011B429AC8C3600186589 /* RecordSetupUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 050011C829AC8C3600186589 /* Build configuration list for PBXNativeTarget "RecordSetupUI" */;
+			buildPhases = (
+				050011B129AC8C3600186589 /* Sources */,
+				050011B229AC8C3600186589 /* Frameworks */,
+				050011B329AC8C3600186589 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RecordSetupUI;
+			productName = RecordSetupUI;
+			productReference = 050011B529AC8C3600186589 /* RecordSetupUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		052618FA29A36AB8000B0EED /* WebSocketDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0526190F29A36AB9000B0EED /* Build configuration list for PBXNativeTarget "WebSocketDemo" */;
@@ -106,10 +259,13 @@
 				052618F829A36AB8000B0EED /* Frameworks */,
 				052618F929A36AB8000B0EED /* Resources */,
 				3D92E9138393B2E47D3E04B5 /* [CP] Embed Pods Frameworks */,
+				050011C329AC8C3600186589 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				050011BE29AC8C3600186589 /* PBXTargetDependency */,
+				050011C129AC8C3600186589 /* PBXTargetDependency */,
 			);
 			name = WebSocketDemo;
 			productName = WebSocketDemo;
@@ -126,6 +282,12 @@
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					050011A929AC8C3600186589 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					050011B429AC8C3600186589 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
 					052618FA29A36AB8000B0EED = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
@@ -145,11 +307,27 @@
 			projectRoot = "";
 			targets = (
 				052618FA29A36AB8000B0EED /* WebSocketDemo */,
+				050011A929AC8C3600186589 /* Record */,
+				050011B429AC8C3600186589 /* RecordSetupUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		050011A829AC8C3600186589 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		050011B329AC8C3600186589 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		052618F929A36AB8000B0EED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,18 +383,52 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		050011A629AC8C3600186589 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				050011AF29AC8C3600186589 /* SampleHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		050011B129AC8C3600186589 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				050011BB29AC8C3600186589 /* BroadcastSetupViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		052618F729A36AB8000B0EED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				050011CE29ACA77300186589 /* UIViewTools.swift in Sources */,
 				0526190329A36AB8000B0EED /* ViewController.swift in Sources */,
+				053EB88029AED996005B8D58 /* ViewController2.swift in Sources */,
+				050011D029ACA77300186589 /* TestTool.swift in Sources */,
+				050011CF29ACA77300186589 /* TestCodeGenerator.swift in Sources */,
 				052618FF29A36AB8000B0EED /* AppDelegate.swift in Sources */,
+				053EB87E29AED834005B8D58 /* WebSocketSingleton.swift in Sources */,
 				05B0854029A626AB004F00F0 /* TextResource.swift in Sources */,
 				0526190129A36AB8000B0EED /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		050011BE29AC8C3600186589 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 050011B429AC8C3600186589 /* RecordSetupUI */;
+			targetProxy = 050011BD29AC8C3600186589 /* PBXContainerItemProxy */;
+		};
+		050011C129AC8C3600186589 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 050011A929AC8C3600186589 /* Record */;
+			targetProxy = 050011C029AC8C3600186589 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0526190429A36AB8000B0EED /* Main.storyboard */ = {
@@ -238,6 +450,106 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		050011C429AC8C3600186589 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GL4HTN9K7P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Record/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Record;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tplink.WebSocketDemo.Record;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		050011C529AC8C3600186589 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GL4HTN9K7P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Record/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Record;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tplink.WebSocketDemo.Record;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		050011C629AC8C3600186589 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GL4HTN9K7P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RecordSetupUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RecordSetupUI;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tplink.WebSocketDemo.RecordSetupUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		050011C729AC8C3600186589 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GL4HTN9K7P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RecordSetupUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RecordSetupUI;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tplink.WebSocketDemo.RecordSetupUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		0526190D29A36AB9000B0EED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -356,10 +668,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 15195FF885C0215961DF7C0D /* Pods-WebSocketDemo.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GL4HTN9K7P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WebSocketDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -367,6 +681,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -384,10 +699,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7B1ECCAF26094FC9B48CBC00 /* Pods-WebSocketDemo.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GL4HTN9K7P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WebSocketDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -395,6 +712,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -411,6 +729,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		050011C829AC8C3600186589 /* Build configuration list for PBXNativeTarget "RecordSetupUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				050011C629AC8C3600186589 /* Debug */,
+				050011C729AC8C3600186589 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		050011C929AC8C3600186589 /* Build configuration list for PBXNativeTarget "Record" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				050011C429AC8C3600186589 /* Debug */,
+				050011C529AC8C3600186589 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		052618F629A36AB8000B0EED /* Build configuration list for PBXProject "WebSocketDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

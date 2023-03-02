@@ -25,6 +25,7 @@
 		0526190B29A36AB9000B0EED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0526190929A36AB9000B0EED /* LaunchScreen.storyboard */; };
 		053EB87E29AED834005B8D58 /* WebSocketSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053EB87D29AED834005B8D58 /* WebSocketSingleton.swift */; };
 		053EB88029AED996005B8D58 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053EB87F29AED996005B8D58 /* ViewController2.swift */; };
+		05616BF329B0AC9C00A1C607 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05616BF229B0AC9C00A1C607 /* ViewController3.swift */; };
 		05B0854029A626AB004F00F0 /* TextResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B0853F29A626AB004F00F0 /* TextResource.swift */; };
 		92A19A61DEC817DF910DE404 /* Pods_WebSocketDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F44D3F7418347768CB47713 /* Pods_WebSocketDemo.framework */; };
 /* End PBXBuildFile section */
@@ -83,6 +84,7 @@
 		0526190C29A36AB9000B0EED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		053EB87D29AED834005B8D58 /* WebSocketSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketSingleton.swift; sourceTree = "<group>"; };
 		053EB87F29AED996005B8D58 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		05616BF229B0AC9C00A1C607 /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
 		05B0853F29A626AB004F00F0 /* TextResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextResource.swift; sourceTree = "<group>"; };
 		15195FF885C0215961DF7C0D /* Pods-WebSocketDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebSocketDemo.debug.xcconfig"; path = "Target Support Files/Pods-WebSocketDemo/Pods-WebSocketDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		7B1ECCAF26094FC9B48CBC00 /* Pods-WebSocketDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebSocketDemo.release.xcconfig"; path = "Target Support Files/Pods-WebSocketDemo/Pods-WebSocketDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				0526190C29A36AB9000B0EED /* Info.plist */,
 				05B0853F29A626AB004F00F0 /* TextResource.swift */,
 				053EB87F29AED996005B8D58 /* ViewController2.swift */,
+				05616BF229B0AC9C00A1C607 /* ViewController3.swift */,
 			);
 			path = WebSocketDemo;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05616BF329B0AC9C00A1C607 /* ViewController3.swift in Sources */,
 				050011CE29ACA77300186589 /* UIViewTools.swift in Sources */,
 				0526190329A36AB8000B0EED /* ViewController.swift in Sources */,
 				053EB88029AED996005B8D58 /* ViewController2.swift in Sources */,

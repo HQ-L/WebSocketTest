@@ -142,7 +142,7 @@ private extension TestCodeGenerator {
         return """
         func testUIOf\(function)() {
             let tester = tester()
-            guard let \(name) = tester.waitForView(withAccessibilityLabel: \\"\(accessibilityLabel)\\")\(typeConvertString) else {
+            guard let \(name) = tester.waitForView(withAccessibilityLabel: "\(accessibilityLabel)")\(typeConvertString) else {
                 tester.fail()
                 return
             }\n

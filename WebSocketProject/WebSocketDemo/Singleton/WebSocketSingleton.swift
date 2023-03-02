@@ -62,6 +62,13 @@ private extension WebSocketSingleton {
             send = send + msg + "\n"
         }
 
+        do {
+            let re = try NSRegularExpression(pattern: "\"", options: .caseInsensitive)
+            send = re.stringByReplacingMatches(in: send, options: .reportProgress, range: NSRange(location: 0, length: send.count), withTemplate: "\\\\\"")
+        } catch {
+
+        }
+
         send = "{ \"user\": \"ios\", \"message\": \"\(send)\"}"
 
         webSocket?.send(.string(send), completionHandler: { error in
@@ -92,6 +99,7 @@ private extension WebSocketSingleton {
                 }
             case .failure(_):
                 print("recive error")
+                self?.close()
             }
             self?.recive()
         })

@@ -1,19 +1,27 @@
 //
 //  WebSocketSingleton.swift
-//  WebSocketDemo
+//  TestTool
 //
-//  Created by hq on 2023/3/1.
+//  Created by hq on 2023/3/3.
 //
 
 import Foundation
 import SwiftyJSON
 
-class WebSocketSingleton: NSObject {
+@available(iOS 13.0, *)
+public class WebSocketSingleton: NSObject {
 
     public static let shared = WebSocketSingleton()
     private var webSocket: URLSessionWebSocketTask?
     private var url: URL?
     private var sendMessage: [String] = []
+
+    public var codeStatus = false {
+        didSet {
+            self.sendMessage = [TestCodeGenerator.shared.code]
+            self.send()
+        }
+    }
 
     private override init() {
         super.init()
@@ -23,7 +31,8 @@ class WebSocketSingleton: NSObject {
             delegateQueue: OperationQueue()
         )
 
-        url = URL(string: "ws://127.0.0.1:8823")
+        // 部署websocket服务的地址
+        url = URL(string: "ws://192.168.1.181:8823")
 
         guard let url = url else { return }
 
@@ -32,18 +41,21 @@ class WebSocketSingleton: NSObject {
     }
 }
 
+@available(iOS 13.0, *)
 extension WebSocketSingleton: URLSessionWebSocketDelegate {
-    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
+    public func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
         print("connect")
         ping()
         recive()
     }
 
-    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
+    @available(iOS 13.0, *)
+    public func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
         print("close")
     }
 }
 
+@available(iOS 13.0, *)
 private extension WebSocketSingleton {
 
     func ping() {
@@ -55,12 +67,7 @@ private extension WebSocketSingleton {
     }
 
     @objc func send() {
-//        sendMessage = "{ \"user\": \"ios\", \"message\": \(sendMessage)}"
-        var send = ""
-
-        for msg in sendMessage {
-            send = send + msg + "\n"
-        }
+        var send = sendMessage.joined(separator: "\n")
 
         do {
             let re = try NSRegularExpression(pattern: "\"", options: .caseInsensitive)
@@ -70,7 +77,6 @@ private extension WebSocketSingleton {
         }
 
         send = "{ \"user\": \"ios\", \"message\": \"\(send)\"}"
-
         webSocket?.send(.string(send), completionHandler: { error in
             if let error = error as? NSError {
                 print(error.code)
@@ -88,10 +94,22 @@ private extension WebSocketSingleton {
                 case .string(let string):
                     print("string: \(string)")
                     let stringJson = JSON(parseJSON: string)
-                    if stringJson["type"] == "click" && stringJson["user"] != "ios" {
-                        self?.sendMessage = [TestTool.generateCodeForAllViewsWithAccessibilityLabel()]
-//                        self?.sendMessage = TestTool.printViewHierachy()
-                        self?.send()
+                    if stringJson["user"] != "ios" {
+                        switch stringJson["type"] {
+                        case "requireTestCode":
+                            self?.sendMessage = [TestCodeGenerator.shared.flushCode()]
+                            self?.send()
+                        case "beginClass":
+                            TestTool.beginClass(stringJson["message"].string ?? "")
+                        case "beginFunction":
+                            TestTool.beginFunction(stringJson["message"].string ?? "")
+                        case "endFunction":
+                            TestTool.endFunction()
+                        case "endClass":
+                            TestTool.endClass()
+                        default:
+                            break
+                        }
                     }
                     print("success")
                 @unknown default:
@@ -100,6 +118,7 @@ private extension WebSocketSingleton {
             case .failure(_):
                 print("recive error")
                 self?.close()
+                self?.webSocket = nil
             }
             self?.recive()
         })

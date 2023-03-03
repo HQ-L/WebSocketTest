@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="./js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="./hierarchy.json"></script>
+
+    <script>
+        var zTreeObj;
+        var setting = {};
+        var zNodes = [data];
+        $(document).ready(() => {
+            zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+        });
+
+        let externsion = data => {
+            console.log(data)
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="treeDemo" class="ztree"></ul>
+</body>
+
+</html>

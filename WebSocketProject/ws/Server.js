@@ -9,7 +9,7 @@ const server = ws.createServer(connect => {
         console.log(dataHandle)
         let dataJson = JSON.parse(dataHandle)
         broadcast({
-            type: "click",
+            type: dataJson["type"],
             message: dataJson["message"],
             user: dataJson["user"]
         })

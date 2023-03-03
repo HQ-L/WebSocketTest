@@ -5,36 +5,149 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        div {
-            width: 200px;
-            height: 200px;
-        }
-    </style>
 </head>
 <body>
-    <input type="text" />
-    <button>send</button>
-    <div></div>
+    <div>
+        <button class="RealTime">实时代码检测</button>
+    </div>
+    <br />
+
+    <div>
+        <button class="BeginClass">beginClass</button>
+        <input type="text" placeholder="class name" class="ClassName" />
+        <button class="EndClass">endClass</button>
+    </div>
+    <br />
+
+    <div>
+        <button class="BeginFunction">beginFunction</button>
+        <input type="text" placeholder="function name" class="FunctionName" />
+        <button class="EndFunction">endFunction</button>
+    </div>
+    <br />
+
+    <div>
+        <button class="RequireTestCode">requireTestCode</button>
+        <button class="RequireUICheckCode">requireUICheckCode</button>
+    </div>
+    <br />
+
+    <div class="Status"></div>
+
+    <div>
+        <textarea cols="200", rows="20" class="TestCode"></textarea>
+    </div>
+    <br />
+
+    <div class="UICheckCode"></div>
     
     <script>
-        let input = document.querySelector('input');
-        let button = document.querySelector('button')
-        let div = document.querySelector('div')
 
-        const ws = new WebSocket('ws://localhost:8823');
+        // 定义发送的信令
+        const SendType = {
+            BeginClass: "beginClass",
+            EndClass: "endClass",
+            BeginFunction: "beginFunction",
+            EndFunction: "endFunction",
+            RequireTestCode: "requireTestCode",
+            RequireUICheckCode: "requireUICheckCode",
+            RealTime: "realTime"
+        };
+
+        // 发送函数
+        let wsSend = wsSendData => {
+            let dataSend = {
+                type: wsSendData.type,
+                message: wsSendData.message,
+                user: "html"
+            }
+            ws.send(JSON.stringify(dataSend))
+        };
+
+        let statusDiv = document.getElementsByClassName("Status");
+
+        // class
+        let beginClassButton = document.getElementsByClassName("BeginClass");
+        let classNameInput = document.getElementsByClassName("ClassName");
+        let endClassButton = document.getElementsByClassName("EndClass");
+
+        // function
+        let beginFunctionButton = document.getElementsByClassName("BeginFunction");
+        let functionNameInput = document.getElementsByClassName("FunctionName");
+        let endFunctionButton = document.getElementsByClassName("EndFunction");
+
+        // require code button
+        let requireTestCodeButton = document.getElementsByClassName("RequireTestCode");
+        let requireUICheckCodeButton = document.getElementsByClassName("RequireUICheckCode");
+
+        // require code show
+        let testCodeTextArea = document.querySelector("textarea");
+        let uiCheckCodeDiv = document.getElementsByClassName("UICheckCode");
+
+        // real time button
+        let realTimeButton = document.getElementsByClassName("RealTime")
+
+        // websocket
+        const ws = new WebSocket('ws://192.168.1.181:8823');
 
         ws.addEventListener('open', () => {
-            div.innerHTML = 'connect'
-        });
-
-        button.addEventListener('click', () => {
-            ws.send(input.value)
+            statusDiv[0].innerHTML = 'connect'
         });
 
         ws.addEventListener('message', data => {
-            div.innerHTML = data.data
+            let msg = JSON.parse(data.data)
+            if (msg["user"] != "html") {
+                testCodeTextArea.innerHTML = msg["message"]
+                statusDiv[0].innerHTML = "接收代码区"
+            }
         })
+
+        // class listener
+        beginClassButton[0].addEventListener("click", () => {
+            wsSend({
+                type: SendType.BeginClass,
+                message: classNameInput[0].value
+            })
+        });
+
+        endClassButton[0].addEventListener("click", () => {
+            wsSend({
+                type: SendType.EndClass,
+                message: ""
+            })
+        });
+
+        // function listener
+        beginFunctionButton[0].addEventListener("click", () => {
+            wsSend({
+                type: SendType.BeginFunction,
+                message: functionNameInput[0].value
+            })
+        });
+
+        endFunctionButton[0].addEventListener("click", () => {
+            wsSend({
+                type: SendType.EndFunction,
+                message: ""
+            })
+        })
+
+        // require code button listener
+        requireTestCodeButton[0].addEventListener("click", () => {
+            wsSend({
+                type: SendType.RequireTestCode,
+                message: ""
+            })
+        })
+
+        // real time button listener
+        realTimeButton[0].addEventListener("click", () => {
+            wsSend({
+                type: SendType.RealTime,
+                message: ""
+            })
+        })
+
     </script>
 </body>
 </html>

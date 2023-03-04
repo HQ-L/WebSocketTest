@@ -79,11 +79,11 @@
         key: {
           isParent: "isParent",
           children: "children",
-          name: "value",
-          title: "",
+          name: "label",
+          title: "addresss",
           url: "url",
-          icon: "icon"
-          canOperation: "canOperation"
+          icon: "icon",
+          canOperate: "canOperate"
         },
         render: {
           name: null,
@@ -238,7 +238,7 @@
           if (tmp) {
             tId = tools.getNodeMainDom(tmp).id;
             nodeEventType = "clickNode";
-            externsion(tools.getNodeMainDom(tmp).innerText)
+            externsion(tmp.title)
           }
         }
       } else if (tools.eqs(event.type, "dblclick")) {
@@ -1321,9 +1321,8 @@
         //   "' style='", view.makeNodeIcoStyle(setting, node), "'></span><span id='", node.tId, consts.id.SPAN,
         //   "' class='", consts.className.NAME,
         //   "'>", name, "</span>");
-        html.push("<span id='", node.tId, consts.id.SPAN,
-          "' class='", consts.className.NAME,
-          "'>", name, "</span>");
+        let backgroundColor = node[setting.data.key.canOperate] ? "rgb(255, 0, 0)" : "rgb(0, 255, 0)"
+        html.push("<span id='", node.tId, consts.id.SPAN, "' style='color: ", backgroundColor, "' class='", consts.className.NAME, "'>", name, "</span>");
       },
       makeDOMNodeLine: function (html, setting, node) {
         html.push("<span id='", node.tId, consts.id.SWITCH, "' title='' class='", view.makeNodeLineClass(setting, node), "' treeNode", consts.id.SWITCH, "></span>");

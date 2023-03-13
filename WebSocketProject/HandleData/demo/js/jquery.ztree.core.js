@@ -83,8 +83,7 @@
           title: "addresss",
           url: "url",
           icon: "icon",
-          canOperate: "canOperate",
-          labelClass: "class"
+          canOperate: "canOperate"
         },
         render: {
           name: null,
@@ -1317,14 +1316,13 @@
       makeDOMNodeIcon: function (html, setting, node) {
         var nameStr = data.nodeName(setting, node),
           name = setting.view.nameIsHTML ? nameStr : nameStr.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        let labelClass = node[setting.data.key.labelClass]
         // html.push("<span id='", node.tId, consts.id.ICON,
         //   "' title='' treeNode", consts.id.ICON, " class='", view.makeNodeIcoClass(setting, node),
         //   "' style='", view.makeNodeIcoStyle(setting, node), "'></span><span id='", node.tId, consts.id.SPAN,
         //   "' class='", consts.className.NAME,
         //   "'>", name, "</span>");
         let backgroundColor = node[setting.data.key.canOperate] ? "rgb(255, 0, 0)" : "rgb(0, 255, 0)"
-        html.push("<span id='", node.tId, consts.id.SPAN, "' style='color: ", backgroundColor, "' class='", consts.className.NAME, "'>", name, labelClass, "</span>");
+        html.push("<span id='", node.tId, consts.id.SPAN, "' style='color: ", backgroundColor, "' class='", consts.className.NAME, "'>", name, "</span>");
       },
       makeDOMNodeLine: function (html, setting, node) {
         html.push("<span id='", node.tId, consts.id.SWITCH, "' title='' class='", view.makeNodeLineClass(setting, node), "' treeNode", consts.id.SWITCH, "></span>");
